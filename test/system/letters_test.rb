@@ -14,7 +14,6 @@ class LettersTest < ApplicationSystemTestCase
     visit letters_url
     click_on "New letter"
 
-    fill_in "Content", with: @letter.content
     fill_in "Subject", with: @letter.subject
     fill_in "User", with: @letter.user_id
     click_on "Create Letter"
@@ -27,7 +26,6 @@ class LettersTest < ApplicationSystemTestCase
     visit letter_url(@letter)
     click_on "Edit this letter", match: :first
 
-    fill_in "Content", with: @letter.content
     fill_in "Subject", with: @letter.subject
     fill_in "User", with: @letter.user_id
     click_on "Update Letter"
