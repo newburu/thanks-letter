@@ -22,6 +22,7 @@ class LettersController < ApplicationController
   # POST /letters or /letters.json
   def create
     @letter = Letter.new(letter_params)
+    @letter.user = current_user
 
     respond_to do |format|
       if @letter.save
@@ -65,6 +66,6 @@ class LettersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def letter_params
-      params.require(:letter).permit(:user_id, :subject, :content)
+      params.require(:letter).permit(:subject, :content)
     end
 end
