@@ -77,6 +77,7 @@ end
 # ユーザ認証/認可
 gem 'devise'
 gem 'devise-i18n'
+gem 'pundit'
 
 # SNS認証
 gem 'omniauth'
