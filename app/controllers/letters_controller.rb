@@ -17,6 +17,7 @@ class LettersController < ApplicationController
 
   # GET /letters/1/edit
   def edit
+    authorize @letter
   end
 
   # POST /letters or /letters.json
@@ -37,6 +38,8 @@ class LettersController < ApplicationController
 
   # PATCH/PUT /letters/1 or /letters/1.json
   def update
+    authorize @letter
+
     respond_to do |format|
       if @letter.update(letter_params)
         format.html { redirect_to letter_url(@letter), notice: "Letter was successfully updated." }
@@ -50,6 +53,8 @@ class LettersController < ApplicationController
 
   # DELETE /letters/1 or /letters/1.json
   def destroy
+    authorize @letter
+
     @letter.destroy
 
     respond_to do |format|
