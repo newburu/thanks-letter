@@ -1,0 +1,28 @@
+system:
+  title: 'さんくすれたー'
+  url: 'https://thanks-letter.com/'
+  bbs_url: 
+  trello_url: 
+  google_form_url: 'https://docs.google.com/forms/d/e/1FAIpQLSdXq9dfO3l39tZZyU1UPybn5YNZoKysdLSkAd2klky3T1M4lw/viewform'
+  official_twitter_id: 'thanks-letter'
+  description: 'ありがとうを伝えよう！'
+  description_smartphone: 'ありがとうを！'
+  hashtag: 'ThanksLetter'
+  twitter_site: newburu
+  twitter:
+    url: 'https://twitter.com/'
+    tweet_url: 'http://twitter.com/intent/tweet'
+    share_url: 'http://twitter.com/share'
+  facebook:
+    share_url: 'https://www.facebook.com/share.php'
+  line:
+    share_url: 'https://social-plugins.line.me/lineit/share'
+  mail:
+    share_url: 'mailto:'
+  default:
+    user_name: 名無しさん
+    rail_color: '#0000ff'
+    imakoko_kind: 0
+  const:
+    on_str: 'on'
+    off_str: 'off'
