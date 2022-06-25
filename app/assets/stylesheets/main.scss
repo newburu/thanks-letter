@@ -1,0 +1,17 @@
+html {
+    font-size: 64%;
+}
+
+.footer-menu {
+    span {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    i {
+        font-size: 2rem;
+    }
+}
