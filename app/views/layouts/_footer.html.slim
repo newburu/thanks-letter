@@ -1,12 +1,18 @@
 nav.nav.footer-menu.fixed-bottom.w-80.nav-justified
   = link_to letters_path, {class: "nav-item nav-link"} do
     .text-center
-      | 一覧を見る
+      span
+        i.fas.fa-list
+        | 一覧を見る
   - if login?
     = link_to new_letter_path, {class: "nav-item nav-link"} do
       .text-center
-        | 作成する
+        span
+          i.fas.fa-file-pen
+          | 作成する
   - else
     = link_to user_twitter_omniauth_authorize_path, {class: "nav-item nav-link"}
       .text-center
-        | ログイン
+        span
+          i.fab.fa-twitter
+          | ログイン
