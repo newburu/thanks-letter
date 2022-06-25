@@ -17,7 +17,7 @@ class LettersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create letter" do
     assert_difference("Letter.count") do
-      post letters_url, params: { letter: { subject: @letter.subject, user_id: @letter.user_id } }
+      post letters_url, params: { letter: { content: @letter.content, subject: @letter.subject, user_id: @letter.user_id } }
     end
 
     assert_redirected_to letter_url(Letter.last)
@@ -34,7 +34,7 @@ class LettersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update letter" do
-    patch letter_url(@letter), params: { letter: { subject: @letter.subject, user_id: @letter.user_id } }
+    patch letter_url(@letter), params: { letter: {content: @letter.content, subject: @letter.subject, user_id: @letter.user_id } }
     assert_redirected_to letter_url(@letter)
   end
 
