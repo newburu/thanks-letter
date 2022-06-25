@@ -11,12 +11,7 @@ html
     script src="https://kit.fontawesome.com/#{ENV['FONTAWESOME_ID']}.js" crossorigin="anonymous"
   body
     header
-      p.notice
-        = notice
-      p.alert
-        = alert
-      - if user_signed_in?
-        = button_to 'ログアウト', destroy_user_session_path, method: :delete
+      = render 'layouts/header'
     main
       = yield
     footer
