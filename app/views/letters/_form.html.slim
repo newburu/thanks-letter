@@ -12,7 +12,7 @@
 
   div
     = form.label :content, style: "display: block"
-    = form.text_area :content
+    = form.text_area :content, {rows: "5"}
 
   div
     canvas#canvas_letter width="820" height="620"
