@@ -93,3 +93,9 @@ gem 'dotenv-rails'
 
 # 設定
 gem 'config'
+
+# ページネーション
+gem 'pagy'
+
+# 検索
+gem 'ransack'
