@@ -24,4 +24,4 @@ h1 Letters
         - if policy(letter).destroy?
           = button_to "Destroy", letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }
 
-= link_to "New letter", new_letter_path
+== pagy_nav(@pagy)

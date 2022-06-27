@@ -3,7 +3,8 @@ class LettersController < ApplicationController
 
   # GET /letters or /letters.json
   def index
-    @letters = Letter.all
+    @q = Letter.ransack(user_id_eq: current_user.try(:id))
+    @pagy, @letters = pagy(@q.result)
   end
 
   # GET /letters/1 or /letters/1.json
