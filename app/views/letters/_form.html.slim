@@ -14,9 +14,8 @@
     = form.label :content, style: "display: block"
     = form.text_area :content, {rows: "5"}
 
-  div
-    canvas#canvas_letter width="820" height="620"
-
+  div.canvas_wrapper
+    canvas#canvas_letter
 
   div
     = form.submit
@@ -47,9 +46,26 @@ javascript:
   // 背景画像読込後にCanvasに描画
   bgImg.onload = () => {
     context.drawImage(bgImg, 0, 0);
+    changeScale();
     drawText(textBox.value);
   }
 
+  // 文字入力時に描画処理を呼び出す
+  window.addEventListener("resize", () => {
+    changeScale();
+    drawText(textBox.value);
+  });
+
+  // サイズ変更処理
+  function changeScale() {
+    // サイズを画面に合わせる変更
+    canvasDom.width = document.body.offsetWidth * 0.8;
+    // 縮小
+    const scale = canvasDom.width / canvasWidth;
+    canvasDom.height = canvasHeight * scale;
+    context.scale(scale, scale);
+  }
+  
   // 文字入力時に描画処理を呼び出す
   textBox.addEventListener("input", () => {
     drawText(textBox.value);
