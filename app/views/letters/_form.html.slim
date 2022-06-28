@@ -8,17 +8,17 @@
 
   div
     = form.label :subject, style: "display: block"
-    = form.text_field :subject
+    = form.text_field :subject, {class: "form-control"}
 
   div
     = form.label :content, style: "display: block"
-    = form.text_area :content, {rows: "5"}
+    = form.text_area :content, {rows: "5", class: "form-control"}
 
   div.canvas_wrapper
     canvas#canvas_letter
 
   div
-    = form.submit
+    = form.submit nil, {class: "btn btn-primary"}
 
 javascript:
   // Canvas準備
