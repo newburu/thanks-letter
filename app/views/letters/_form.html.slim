@@ -22,25 +22,25 @@
 
 javascript:
   // Canvas準備
-  const canvasDom = document.getElementById("canvas_letter");
-  const context = canvasDom.getContext("2d");
+  var canvasDom = document.getElementById("canvas_letter");
+  var context = canvasDom.getContext("2d");
 
   // テキストボックス
-  const textBox = document.getElementById("letter_content");
+  var textBox = document.getElementById("letter_content");
 
   // canvas情報
-  const canvasWidth = 820;  //canvasの横幅
-  const canvasHeight = 620; //canvasの縦幅
+  var canvasWidth = 820;  //canvasの横幅
+  var canvasHeight = 620; //canvasの縦幅
 
   // 入力エリア情報
-  const fontSize = 30;      // フォントサイズ
-  const rowStringCnt = 24;  //一行あたりの文字数
-  const rowGap = 10;        // 行間隔
-  const startTop = 80;      // 入力開始位置(縦)
-  const startLeft = 50;     // 入力開始位置(横)
+  var fontSize = 30;      // フォントサイズ
+  var rowStringCnt = 24;  //一行あたりの文字数
+  var rowGap = 10;        // 行間隔
+  var startTop = 80;      // 入力開始位置(縦)
+  var startLeft = 50;     // 入力開始位置(横)
 
   // 背景画像
-  const bgImg = new Image();
+  var bgImg = new Image();
   bgImg.src = "#{image_path("letter/001.png")}";
 
   // 背景画像読込後にCanvasに描画
@@ -61,7 +61,7 @@ javascript:
     // サイズを画面に合わせる変更
     canvasDom.width = document.body.offsetWidth * 0.8;
     // 縮小
-    const scale = canvasDom.width / canvasWidth;
+    var scale = canvasDom.width / canvasWidth;
     canvasDom.height = canvasHeight * scale;
     context.scale(scale, scale);
   }
@@ -85,10 +85,10 @@ javascript:
     context.textBaseline  = 'hanging';
 
     // 入力文字を1文字毎に配列化
-    const aryText = text.split('');
+    var aryText = text.split('');
     
     // 出力用の配列を用意
-    const aryRow = [];
+    var aryRow = [];
     aryRow[0] = '';
     let rowCnt = 0;
     
