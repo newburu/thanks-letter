@@ -8,93 +8,14 @@
 
   div
     = form.label :subject, style: "display: block"
-    = form.text_field :subject
+    = form.text_field :subject, {class: "form-control"}
 
   div
     = form.label :content, style: "display: block"
-    = form.text_area :content, {rows: "5"}
+    = form.text_area :content, {rows: "5", class: "form-control"}
+
+  div.canvas_wrapper
+    canvas#canvas_letter
 
   div
-    canvas#canvas_letter width="820" height="620"
-
-
-  div
-    = form.submit
-
-javascript:
-  // Canvas準備
-  const canvasDom = document.getElementById("canvas_letter");
-  const context = canvasDom.getContext("2d");
-
-  // テキストボックス
-  const textBox = document.getElementById("letter_content");
-
-  // canvas情報
-  const canvasWidth = 820;  //canvasの横幅
-  const canvasHeight = 620; //canvasの縦幅
-
-  // 入力エリア情報
-  const fontSize = 30;      // フォントサイズ
-  const rowStringCnt = 24;  //一行あたりの文字数
-  const rowGap = 10;        // 行間隔
-  const startTop = 80;      // 入力開始位置(縦)
-  const startLeft = 50;     // 入力開始位置(横)
-
-  // 背景画像
-  const bgImg = new Image();
-  bgImg.src = "#{image_path("letter/001.png")}";
-
-  // 背景画像読込後にCanvasに描画
-  bgImg.onload = () => {
-    context.drawImage(bgImg, 0, 0);
-    drawText(textBox.value);
-  }
-
-  // 文字入力時に描画処理を呼び出す
-  textBox.addEventListener("input", () => {
-    drawText(textBox.value);
-  });
-
-  // 描画処理
-  function drawText(text) {
-    // canvasリセット
-    context.clearRect(0, 0, canvasWidth, canvasHeight);
-    // 背景画像描画
-    context.drawImage(bgImg, 0, 0);
-
-    //canvasの文字データを設定
-    context.textAlign     = 'left';
-    context.fillStyle     = 'black';
-    context.font          = fontSize + 'px meiryo';
-    context.textBaseline  = 'hanging';
-
-    // 入力文字を1文字毎に配列化
-    const aryText = text.split('');
-    
-    // 出力用の配列を用意
-    const aryRow = [];
-    aryRow[0] = '';
-    let rowCnt = 0;
-    
-    // 入力1文字毎にループ　改行コードもしくは折り返しで配列の添え字を足す
-    aryText.forEach( text => {
-      if(aryRow[rowCnt].length >= rowStringCnt){
-        rowCnt++;
-        aryRow[rowCnt] = '';
-      }
-      if(text == "\n"){
-        rowCnt++;
-        aryRow[rowCnt] = '';
-        text = '';
-      }
-      aryRow[rowCnt] += text;
-    });
-    
-    //文字の表示　y軸とx軸をループする
-    for(let i = 0; i < aryRow.length; i++){
-      aryStr = aryRow[i].split('');
-      for(let j = 0; j < aryStr.length; j++){
-        context.fillText(aryStr[j], startLeft + (j * fontSize), startTop + (i * (fontSize + rowGap)));
-      }
-    }
-  }
+    = form.submit nil, {class: "btn btn-primary"}
