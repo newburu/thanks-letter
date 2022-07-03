@@ -1,0 +1,18 @@
+ja:
+  activerecord:
+    attributes:
+      letter:
+        user: 作成者
+        subject: タイトル
+        content: 本文
+  letters:
+    new:
+      title: 新しく書く
+    index:
+      title: 今までのれた〜
+      btn:
+        show: 開く
+        edit: 直す
+        destroy: 消す
+    edit:
+      title: 修正する
