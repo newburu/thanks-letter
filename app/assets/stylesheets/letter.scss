@@ -7,6 +7,23 @@
     margin: 0 auto;
 }
 
+.letter_form {
+    label {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    input {
+        border-color: $main-color;
+    }
+    textarea {
+        border-color: $main-color;
+    }
+    input[type="submit"] {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+    }
+}
+
 .letter_list {
     li {
         border-bottom: solid 2px $main-color;
