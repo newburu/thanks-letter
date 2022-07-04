@@ -1,4 +1,6 @@
 = form_with(model: @letter, class: "letter_form") do |form|
+  = render partial: 'layouts/flash'
+
   - if @letter.errors.any?
     div style="color: red"
       h2 = "#{pluralize(@letter.errors.count, "error")} prohibited this letter from being saved:"

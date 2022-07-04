@@ -24,6 +24,18 @@ main {
     }
 }
 
+.notifications {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    .notice {
+        background-color: $main-color;
+    }
+    .alert {
+        background-color: alert_orange;
+    }
+}
+
 .delete_link {
     background: none;
     border: none;
