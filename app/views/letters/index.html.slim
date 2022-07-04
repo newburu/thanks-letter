@@ -1,27 +1,17 @@
-h1 Letters
+h1 = t('.title')
 
 #letters
-  .row
-    .col-3
-      | User
-    .col-3
-      | Subject
-    .col-2
-    .col-2
-    .col-2
   - @letters.each do |letter|
-    .row
-      .col-3
-        = letter.user.name
-      .col-3
-        = letter.subject 
-      .col-2
-        = link_to "Show", letter
-      .col-2
-        - if policy(letter).edit?
-          = link_to "Edit", edit_letter_path(letter)
-      .col-2
-        - if policy(letter).destroy?
-          = button_to "Destroy", letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }
+    ul.letter_list
+      li
+        .letter_items
+          - if policy(letter).edit?
+            = link_to letter.subject, edit_letter_path(letter)
+          - else
+            = link_to letter.subject, letter
+          - if policy(letter).destroy?
+            = button_to letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'delete_link'
+              i.fas.fa-trash-can
 
-== pagy_nav(@pagy)
+- if @pagy.vars[:count] > Pagy::DEFAULT[:items]
+  == pagy_bootstrap_nav(@pagy)
