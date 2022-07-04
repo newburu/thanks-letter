@@ -1,24 +1,17 @@
 h1 = t('.title')
 
 #letters
-  .row
-    .col-3
-      = t('activerecord.attributes.letter.subject')
-    .col-2
-    .col-2
-    .col-2
   - @letters.each do |letter|
-    .row
-      .col-3
-        = letter.subject 
-      .col-2
-        = link_to t('.btn.show'), letter
-      .col-2
-        - if policy(letter).edit?
-          = link_to t('.btn.edit'), edit_letter_path(letter)
-      .col-2
-        - if policy(letter).destroy?
-          = button_to t('.btn.destroy'), letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }
+    ul.letter_list
+      li
+        .letter_items
+          - if policy(letter).edit?
+            = link_to letter.subject, edit_letter_path(letter)
+          - else
+            = link_to letter.subject, letter
+          - if policy(letter).destroy?
+            = button_to letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'delete_link'
+              i.fas.fa-trash-can
 
 - if @pagy.vars[:count] > Pagy::DEFAULT[:items]
   == pagy_bootstrap_nav(@pagy)

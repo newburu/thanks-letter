@@ -10,9 +10,5 @@ ja:
       title: 新しく書く
     index:
       title: 今までのれた〜
-      btn:
-        show: 開く
-        edit: 直す
-        destroy: 消す
     edit:
       title: 修正する
