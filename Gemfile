@@ -99,3 +99,6 @@ gem 'pagy'
 
 # 検索
 gem 'ransack'
+
+# 画像処理
+gem 'carrierwave', '~> 2.0'

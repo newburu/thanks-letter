@@ -3,4 +3,6 @@ class Letter < ApplicationRecord
 
   validates :subject, presence: true
   validates :content, presence: true
+
+  mount_uploader :image, ImageUploader
 end

@@ -6,7 +6,7 @@ h1 = t('.title')
       li
         .letter_items
           - if policy(letter).edit?
-            = link_to letter.subject, edit_letter_path(letter)
+            = link_to letter.subject, edit_letter_path(letter), {data: {turbo: false}}
           - else
             = link_to letter.subject, letter
           - if policy(letter).destroy?

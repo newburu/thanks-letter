@@ -72,6 +72,6 @@ class LettersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def letter_params
-      params.require(:letter).permit(:subject, :content)
+      params.require(:letter).permit(:subject, :content, :image)
     end
 end
