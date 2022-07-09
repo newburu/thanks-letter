@@ -5,6 +5,9 @@ const context = canvasDom.getContext("2d");
 // テキストボックス
 const textBox = document.getElementById("letter_content");
 
+// Submitボタン
+const submitButton = document.getElementById("letter_submit");
+
 // canvas情報
 const canvasWidth = 820; //canvasの横幅
 const canvasHeight = 620; //canvasの縦幅
@@ -91,3 +94,23 @@ function drawText(text) {
         }
     }
 }
+
+// 保存処理
+submitButton.addEventListener('click', async() => {
+    // 画像変換
+    let imageBlob = await new Promise(resolve => canvasDom.toBlob(resolve, 'image/png'));
+
+    const form = document.getElementById('letter_form');
+    const formData = new FormData(form);
+    formData.append("letter[image]", imageBlob, "letter.png");
+    // CSRF対策
+    const token = document.getElementsByName("csrf-token")[0].content;
+    // データを送信
+    let response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'X-CSRF-Token': token },
+        body: formData
+    });
+    // 送信後、一覧画面に移動します。
+    let location = window.location.replace('/letters')
+});

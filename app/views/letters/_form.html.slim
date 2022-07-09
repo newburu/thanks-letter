@@ -1,4 +1,4 @@
-= form_with(model: @letter, class: "letter_form") do |form|
+= form_with(model: @letter, html: {id: 'letter_form', class: "letter_form", multipart: true}) do |form|
   = render partial: 'layouts/flash'
 
   - if @letter.errors.any?
@@ -18,4 +18,4 @@
     canvas#canvas_letter
 
   div
-    = form.submit nil, {class: "btn btn-primary"}
+    = form.button nil, {type: 'button', id: "letter_submit", class: "btn btn-primary"}
