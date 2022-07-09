@@ -105,3 +105,14 @@ gem 'carrierwave', '~> 2.0'
 
 # SEO
 gem 'meta-tags'
+
+# デプロイ
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519' 
+  gem 'bcrypt_pbkdf'
+end
