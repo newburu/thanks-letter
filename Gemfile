@@ -102,3 +102,6 @@ gem 'ransack'
 
 # 画像処理
 gem 'carrierwave', '~> 2.0'
+
+# SEO
+gem 'meta-tags'
