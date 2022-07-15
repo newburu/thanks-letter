@@ -4,10 +4,10 @@ lock "~> 3.17.0"
 set :repo_url, ENV['DEPLOY_GIT_URL']
 
 # deployするブランチ
-set :branch, 'main'
+set :branch, ENV['DEPLOY_BRANCH']
 
 # シンボリックリンクをはるファイル
-#append :linked_files, "config/database.yml", 'config/master.key'
+append :linked_files, ".env", "config/database.yml", "config/credentials/production.key"
 
 # シンボリックリンクをはるフォルダ
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage", "public/uploads"
