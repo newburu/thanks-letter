@@ -7,7 +7,7 @@ set :repo_url, ENV['DEPLOY_GIT_URL']
 set :branch, ENV['DEPLOY_BRANCH']
 
 # シンボリックリンクをはるファイル
-append :linked_files, ".env", "config/database.yml", "config/credentials/production.key"
+append :linked_files, ".env", "config/database.yml", "config/master.key"
 
 # シンボリックリンクをはるフォルダ
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "tmp/webpacker", "public/system", "vendor", "storage", "public/uploads"
