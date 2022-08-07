@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     # Twitter API認証用
     :omniauth_callbacks => 'users/omniauth_callbacks',
   }
+
+  # 静的ページ
+  get "static_pages/terms"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
