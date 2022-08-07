@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # 静的ページ
   get "static_pages/terms"
+  get "static_pages/privacy"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

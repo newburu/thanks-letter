@@ -18,6 +18,11 @@ header.header
           = link_to static_pages_terms_path, {class: "nav-item nav-link"} do
             span.mr-2
               | 利用規約
+      ul.nva.navbar-nav
+        li.nav-item
+          = link_to static_pages_privacy_path, {class: "nav-item nav-link"} do
+            span.mr-2
+              | プライバシーポリシー
       ul.nav.navbar-nav
         - if login?
           span.navbar-text
