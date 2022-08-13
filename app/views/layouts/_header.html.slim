@@ -28,7 +28,7 @@ header.header
           span.navbar-text
             = "#{current_user.name}さん"
           li.nav-item
-            = button_to 'ログアウト', destroy_user_session_path, {method: :delete, class: "nav-item nav-link"}
+            = button_to 'ログアウト', destroy_user_session_path, {method: :delete, class: "nav-item nav-link btn btn-link"}
         - else
           li.nav-item
             = link_to "Twitterでログイン", user_twitter_omniauth_authorize_path, {class: "nav-item nav-link"}
