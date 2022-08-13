@@ -1,6 +1,9 @@
 header.header
   nav.menu.nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
-    = link_to root_path, {class: 'navbar-brand'} do
+    - logo_btn_url = root_path
+    - if login?
+      - logo_btn_url = letters_path
+    = link_to logo_btn_url, {class: 'navbar-brand'} do
       = image_tag "logo.png", size: "32x32"
       span.mr-2.system-font
         = Settings.system[:title]
