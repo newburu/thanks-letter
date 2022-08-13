@@ -1,34 +1,37 @@
 header.header
-  nav.menu.nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
-    = link_to root_path, {class: 'navbar-brand'} do
+  nav.menu.nav.navbar.navbar-expand-lg.navbar-dark.bg-primary.px-3
+    - logo_btn_url = root_path
+    - if login?
+      - logo_btn_url = letters_path
+    = link_to logo_btn_url, {class: 'navbar-brand'} do
       = image_tag "logo.png", size: "32x32"
       span.mr-2.system-font
         = Settings.system[:title]
-    button.navbar-toggler.navbar-toggler-right type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"
-      span.navbar-toggler-icon
+    .navbar-text
+      - if login?
+        = "#{current_user.name}さん"
+      button.navbar-toggler.navbar-toggler-right type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"
+        span.navbar-toggler-icon
     #navbar.navbar-collapse.collapse.justify-content-end
-      ul.nva.navbar-nav
+      ul.nva.navbar-nav.border-bottom.border-white
         li.nav-item
           = link_to letters_path, {class: "nav-item nav-link"} do
-            i.fas.fa-list
             span.mr-2
               | 一覧を見る
-      ul.nva.navbar-nav
+      ul.nva.navbar-nav.border-bottom.border-white
         li.nav-item
           = link_to static_pages_terms_path, {class: "nav-item nav-link"} do
             span.mr-2
               | 利用規約
-      ul.nva.navbar-nav
+      ul.nva.navbar-nav.border-bottom.border-white
         li.nav-item
           = link_to static_pages_privacy_path, {class: "nav-item nav-link"} do
             span.mr-2
               | プライバシーポリシー
-      ul.nav.navbar-nav
+      ul.nav.navbar-nav.border-bottom.border-white
         - if login?
-          span.navbar-text
-            = "#{current_user.name}さん"
           li.nav-item
-            = button_to 'ログアウト', destroy_user_session_path, {method: :delete, class: "nav-item nav-link"}
+            = button_to 'ログアウト', destroy_user_session_path, {method: :delete, class: "nav-item nav-link btn btn-link"}
         - else
           li.nav-item
             = link_to "Twitterでログイン", user_twitter_omniauth_authorize_path, {class: "nav-item nav-link"}
