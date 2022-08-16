@@ -7,4 +7,4 @@ div id="#{dom_id letter}"
     =< letter.subject
   p
     strong Content:
-    ==< letter.content
+    = image_tag(letter.image.url)

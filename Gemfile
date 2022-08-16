@@ -119,3 +119,6 @@ end
 
 # AppServer
 gem 'unicorn'
+
+# FontAwesome
+gem 'font-awesome-sass'
