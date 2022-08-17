@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_05_132835) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_17_003845) do
+  create_table "letter_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.integer "height"
+    t.integer "width"
+    t.integer "font_size"
+    t.integer "row_cnt"
+    t.integer "row_gap"
+    t.integer "start_top"
+    t.integer "start_left"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "letters", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "subject"

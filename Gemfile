@@ -122,3 +122,6 @@ gem 'unicorn'
 
 # FontAwesome
 gem 'font-awesome-sass'
+
+# 初期データ投入
+gem 'seed-fu'

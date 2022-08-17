@@ -1,0 +1,10 @@
+p style="color: green" = notice
+
+== render @letter_image
+
+div
+  => link_to "Edit this letter image", edit_letter_image_path(@letter_image)
+  '|
+  =< link_to "Back to letter images", letter_images_path
+
+  = button_to "Destroy this letter image", @letter_image, method: :delete

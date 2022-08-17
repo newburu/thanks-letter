@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :letter_images
   resources :letters
 
   get 'users/index'

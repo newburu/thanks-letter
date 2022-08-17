@@ -1,0 +1,28 @@
+div id="#{dom_id letter_image}"
+  p
+    strong Name:
+    =< letter_image.name
+  p
+    strong Image:
+    =< image_tag(letter_image.image.url, width: "100%")
+  p
+    strong Height:
+    =< letter_image.height
+  p
+    strong Width:
+    =< letter_image.width
+  p
+    strong Font size:
+    =< letter_image.font_size
+  p
+    strong Row cnt:
+    =< letter_image.row_cnt
+  p
+    strong Row gap:
+    =< letter_image.row_gap
+  p
+    strong Start top:
+    =< letter_image.start_top
+  p
+    strong Start left:
+    =< letter_image.start_left
