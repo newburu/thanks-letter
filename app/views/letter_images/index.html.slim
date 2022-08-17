@@ -4,8 +4,7 @@ h1 Letter images
 
 #letter_images
   - @letter_images.each do |letter_image|
-    == render letter_image
     p
-      = link_to "Show this letter image", letter_image
+      = link_to letter_image.name, letter_image
 
 = link_to "New letter image", new_letter_image_path

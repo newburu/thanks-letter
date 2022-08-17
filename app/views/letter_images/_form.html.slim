@@ -12,7 +12,8 @@
 
   div
     = form.label :image, style: "display: block"
-    = form.text_field :image
+    = image_tag(@letter_image.image.url, width: "100%")
+    = form.file_field :image
 
   div
     = form.label :height, style: "display: block"
