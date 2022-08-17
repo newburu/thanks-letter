@@ -30,7 +30,7 @@ bgImg.onload = () => {
     drawText(textBox.value);
 }
 
-// 文字入力時に描画処理を呼び出す
+// 画面サイズ変更時に描画処理を呼び出す
 window.addEventListener("resize", () => {
     changeScale();
     drawText(textBox.value);
