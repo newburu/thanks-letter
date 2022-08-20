@@ -11,8 +11,8 @@
     = form.text_field :subject, {class: "form-control"}
 
   div
-    = form.label :letter_image, style: "display: block"
-    = form.select :letter_image, options_for_select(LetterImage.all.map{|li|[li[:name], li[:id], {data: li.attributes.merge({image_path: li.image.url})}]}), {}, {class: "form-control"}
+    = form.label :letter_image_id, style: "display: block"
+    = form.select :letter_image_id, options_for_select(LetterImage.all.map{|li|[li[:name], li[:id], {data: li.attributes.merge({image_path: li.image.url})}]}, @letter.letter_image_id), {}, {class: "form-control"}
   div
     = form.label :content, style: "display: block"
     = form.text_area :content, {rows: "5", class: "form-control"}

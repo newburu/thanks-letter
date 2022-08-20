@@ -21,12 +21,16 @@ let startLeft = 50; // 入力開始位置(横)
 const bgImg = new Image();
 
 // 種類セレクト
-const selectLetterImage = document.getElementById("letter_letter_image");
+const selectLetterImage = document.getElementById("letter_letter_image_id");
 bgImg.src = selectLetterImage.options[selectLetterImage.selectedIndex].dataset.imagePath;
 
 // 種類変更時に呼び出す
 selectLetterImage.addEventListener("change", function() {
-    const opt = this.options[this.selectedIndex];
+    changeLetterImage();
+});
+
+function changeLetterImage() {
+    const opt = selectLetterImage.options[selectLetterImage.selectedIndex];
     canvasWidth = parseInt(opt.dataset.width);
     canvasHeight = parseInt(opt.dataset.height);
     fontSize = parseInt(opt.dataset.fontSize);
@@ -38,16 +42,14 @@ selectLetterImage.addEventListener("change", function() {
     bgImg.src = opt.dataset.imagePath;
     changeScale();
     drawText();
-});
+}
 
 // Submitボタン
 const submitButton = document.getElementById("letter_submit");
 
 // 背景画像読込後にCanvasに描画
 bgImg.onload = () => {
-    context.drawImage(bgImg, 0, 0);
-    changeScale();
-    drawText();
+    changeLetterImage();
 }
 
 // 画面サイズ変更時に描画処理を呼び出す
