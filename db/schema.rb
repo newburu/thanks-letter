@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_17_024959) do
     t.integer "height"
     t.integer "width"
     t.integer "font_size"
+    t.integer "row_char_cnt"
     t.integer "row_cnt"
     t.integer "row_gap"
     t.integer "start_top"

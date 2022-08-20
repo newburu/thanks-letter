@@ -11,7 +11,8 @@ let canvasHeight = 620; //canvasの縦幅
 
 // 入力エリア情報
 let fontSize = 30; // フォントサイズ
-let rowStringCnt = 24; //一行あたりの文字数
+let rowCharCnt = 24; //一行あたりの文字数
+let rowCnt = 11; //行数
 let rowGap = 10; // 行間隔
 let startTop = 80; // 入力開始位置(縦)
 let startLeft = 50; // 入力開始位置(横)
@@ -29,7 +30,8 @@ selectLetterImage.addEventListener("change", function() {
     canvasWidth = parseInt(opt.dataset.width);
     canvasHeight = parseInt(opt.dataset.height);
     fontSize = parseInt(opt.dataset.fontSize);
-    rowStringCnt = parseInt(opt.dataset.rowStringCnt);
+    rowCharCnt = parseInt(opt.dataset.rowCharCnt);
+    rowCnt = parseInt(opt.dataset.rowCnt);
     rowGap = parseInt(opt.dataset.rowGap);
     startTop = parseInt(opt.dataset.startTop);
     startLeft = parseInt(opt.dataset.startLeft);
@@ -89,20 +91,20 @@ function drawText() {
     // 出力用の配列を用意
     const aryRow = [];
     aryRow[0] = '';
-    let rowCnt = 0;
+    let rowIdx = 0;
 
     // 入力1文字毎にループ　改行コードもしくは折り返しで配列の添え字を足す
     aryText.forEach(text => {
-        if (aryRow[rowCnt].length >= rowStringCnt) {
-            rowCnt++;
-            aryRow[rowCnt] = '';
+        if (aryRow[rowIdx].length >= rowCharCnt) {
+            rowIdx++;
+            aryRow[rowIdx] = '';
         }
         if (text == "\n") {
-            rowCnt++;
-            aryRow[rowCnt] = '';
+            rowIdx++;
+            aryRow[rowIdx] = '';
             text = '';
         }
-        aryRow[rowCnt] += text;
+        aryRow[rowIdx] += text;
     });
 
     //文字の表示　y軸とx軸をループする
