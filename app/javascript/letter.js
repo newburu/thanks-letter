@@ -48,8 +48,10 @@ function changeLetterImage() {
 const submitButton = document.getElementById("letter_submit");
 
 // 背景画像読込後にCanvasに描画
-window.onload = () => {
-    changeLetterImage();
+bgImg.onload = () => {
+    context.drawImage(bgImg, 0, 0);
+    changeScale();
+    drawText();
 }
 
 // 画面サイズ変更時に描画処理を呼び出す
