@@ -47,6 +47,11 @@ function changeLetterImage() {
 // Submitボタン
 const submitButton = document.getElementById("letter_submit");
 
+// 画面ロード完了
+window.onload = () => {
+    changeLetterImage();
+}
+
 // 背景画像読込後にCanvasに描画
 bgImg.onload = () => {
     context.drawImage(bgImg, 0, 0);
