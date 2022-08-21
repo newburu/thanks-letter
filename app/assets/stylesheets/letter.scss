@@ -12,10 +12,9 @@
         font-weight: bold;
         font-size: 2rem;
     }
-    input {
-        border-color: $main-color;
-    }
-    textarea {
+    input,
+    textarea,
+    select {
         border-color: $main-color;
     }
     input[type="submit"] {

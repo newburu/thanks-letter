@@ -1,0 +1,10 @@
+h1 Editing letter image
+
+== render "form", letter_image: @letter_image
+
+br
+
+div
+  => link_to "Show this letter image", @letter_image
+  '|
+  =< link_to "Back to letter images", letter_images_path

@@ -4,6 +4,7 @@ ja:
       letter:
         user: 作成者
         subject: タイトル
+        letter_image: 種類
         content: 本文
   letters:
     new:

@@ -298,6 +298,9 @@ GEM
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
+    seed-fu (2.3.9)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     selenium-webdriver (4.3.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -391,6 +394,7 @@ DEPENDENCIES
   pundit
   rails (~> 7.0.2, >= 7.0.2.3)
   ransack
+  seed-fu
   selenium-webdriver
   slim-rails
   sprockets-rails

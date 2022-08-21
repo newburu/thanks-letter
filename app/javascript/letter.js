@@ -5,35 +5,57 @@ const context = canvasDom.getContext("2d");
 // テキストボックス
 const textBox = document.getElementById("letter_content");
 
-// Submitボタン
-const submitButton = document.getElementById("letter_submit");
-
 // canvas情報
-const canvasWidth = 820; //canvasの横幅
-const canvasHeight = 620; //canvasの縦幅
+let canvasWidth = 820; //canvasの横幅
+let canvasHeight = 620; //canvasの縦幅
 
 // 入力エリア情報
-const fontSize = 30; // フォントサイズ
-const rowStringCnt = 24; //一行あたりの文字数
-const rowGap = 10; // 行間隔
-const startTop = 80; // 入力開始位置(縦)
-const startLeft = 50; // 入力開始位置(横)
+let fontSize = 30; // フォントサイズ
+let rowCharCnt = 24; //一行あたりの文字数
+let rowCnt = 11; //行数
+let rowGap = 10; // 行間隔
+let startTop = 80; // 入力開始位置(縦)
+let startLeft = 50; // 入力開始位置(横)
 
 // 背景画像
 const bgImg = new Image();
-bgImg.src = "/images/letter/001.png";
+
+// 種類セレクト
+const selectLetterImage = document.getElementById("letter_letter_image_id");
+bgImg.src = selectLetterImage.options[selectLetterImage.selectedIndex].dataset.imagePath;
+
+// 種類変更時に呼び出す
+selectLetterImage.addEventListener("change", function() {
+    changeLetterImage();
+});
+
+function changeLetterImage() {
+    const opt = selectLetterImage.options[selectLetterImage.selectedIndex];
+    canvasWidth = parseInt(opt.dataset.width);
+    canvasHeight = parseInt(opt.dataset.height);
+    fontSize = parseInt(opt.dataset.fontSize);
+    rowCharCnt = parseInt(opt.dataset.rowCharCnt);
+    rowCnt = parseInt(opt.dataset.rowCnt);
+    rowGap = parseInt(opt.dataset.rowGap);
+    startTop = parseInt(opt.dataset.startTop);
+    startLeft = parseInt(opt.dataset.startLeft);
+    bgImg.src = opt.dataset.imagePath;
+    changeScale();
+    drawText();
+}
+
+// Submitボタン
+const submitButton = document.getElementById("letter_submit");
 
 // 背景画像読込後にCanvasに描画
 bgImg.onload = () => {
-    context.drawImage(bgImg, 0, 0);
-    changeScale();
-    drawText(textBox.value);
+    changeLetterImage();
 }
 
-// 文字入力時に描画処理を呼び出す
-window.addEventListener("resize", () => {
+// 画面サイズ変更時に描画処理を呼び出す
+window.addEventListener("resize", function() {
     changeScale();
-    drawText(textBox.value);
+    drawText();
 });
 
 // サイズ変更処理
@@ -47,12 +69,13 @@ function changeScale() {
 }
 
 // 文字入力時に描画処理を呼び出す
-textBox.addEventListener("input", () => {
-    drawText(textBox.value);
+textBox.addEventListener("input", function() {
+    drawText();
 });
 
 // 描画処理
-function drawText(text) {
+function drawText() {
+    const text = textBox.value;
     // canvasリセット
     context.clearRect(0, 0, canvasWidth, canvasHeight);
     // 背景画像描画
@@ -70,20 +93,20 @@ function drawText(text) {
     // 出力用の配列を用意
     const aryRow = [];
     aryRow[0] = '';
-    let rowCnt = 0;
+    let rowIdx = 0;
 
     // 入力1文字毎にループ　改行コードもしくは折り返しで配列の添え字を足す
     aryText.forEach(text => {
-        if (aryRow[rowCnt].length >= rowStringCnt) {
-            rowCnt++;
-            aryRow[rowCnt] = '';
+        if (aryRow[rowIdx].length >= rowCharCnt) {
+            rowIdx++;
+            aryRow[rowIdx] = '';
         }
         if (text == "\n") {
-            rowCnt++;
-            aryRow[rowCnt] = '';
+            rowIdx++;
+            aryRow[rowIdx] = '';
             text = '';
         }
-        aryRow[rowCnt] += text;
+        aryRow[rowIdx] += text;
     });
 
     //文字の表示　y軸とx軸をループする
