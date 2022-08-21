@@ -5,7 +5,7 @@ nav.nav.footer-menu.fixed-bottom.w-80.nav-justified
         i.fas.fa-list
         | 一覧を見る
   - if login?
-    = link_to new_letter_path, {class: "nav-item nav-link"} do
+    = link_to new_letter_path, {data: {turbo: false}, class: "nav-item nav-link"} do
       .text-center
         span
           i.fas.fa-file-pen
