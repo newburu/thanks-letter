@@ -136,11 +136,18 @@ submitButton.addEventListener('click', async() => {
     // CSRF対策
     const token = document.getElementsByName("csrf-token")[0].content;
     // データを送信
-    let response = await fetch(form.action, {
+    const response = await fetch("/letters.json", {
         method: 'POST',
-        headers: { 'X-CSRF-Token': token },
+        headers: {
+            'X-CSRF-Token': token,
+        },
         body: formData
     });
-    // 送信後、一覧画面に移動します。
-    let location = window.location.replace('/letters')
+    if (response.ok) {
+        // 送信後、一覧画面に移動します。
+        let location = window.location.replace('/letters')
+    } else {
+        form.submit();
+    }
+
 });
