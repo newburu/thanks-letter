@@ -7,6 +7,7 @@ ja:
         letter_image: 種類
         letter_image_id: 種類
         content: 本文
+        created_at: 作成日時
   letters:
     new:
       title: 新しく書く
