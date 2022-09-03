@@ -1,3 +1,5 @@
 - set_meta_tags og: {image: image_url(@letter.image.url)} if @letter.image?
 
 == render "form", letter: @letter
+
+== link_to_twitter(letter_url(@letter))
