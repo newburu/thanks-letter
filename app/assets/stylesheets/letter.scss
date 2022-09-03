@@ -30,7 +30,6 @@
 }
 
 .letter_items {
-    display: flex;
     justify-content: space-between;
     align-items: center;
     line-height: 2.6rem;
@@ -42,5 +41,8 @@
     }
     .delete_link {
         font-size: 2rem;
+    }
+    .created_at {
+        font-size: 0.7rem;
     }
 }

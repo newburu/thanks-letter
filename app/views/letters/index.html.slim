@@ -5,13 +5,20 @@ h1 = t('.title')
     ul.letter_list
       li
         .letter_items
-          - if policy(letter).edit?
-            = link_to letter.subject, edit_letter_path(letter), {data: {turbo: false}}
-          - else
-            = link_to letter.subject, letter
-          - if policy(letter).destroy?
-            = button_to letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'delete_link'
-              i.fas.fa-trash-can
+          .row
+            .col-10
+              - if policy(letter).edit?
+                = link_to letter.subject, edit_letter_path(letter), {data: {turbo: false}}
+              - else
+                = link_to letter.subject, letter
+            .col-2
+              - if policy(letter).destroy?
+                = button_to letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'delete_link'
+                  i.fas.fa-trash-can
+          .row
+            .col-12.created_at
+              label
+                = "#{t('activerecord.attributes.letter.created_at')}：#{l(letter.created_at, format: :long)}"
 
 - if @pagy.vars[:count] > Pagy::DEFAULT[:items]
   == pagy_bootstrap_nav(@pagy)
