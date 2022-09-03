@@ -136,7 +136,7 @@ submitButton.addEventListener('click', async() => {
     // CSRF対策
     const token = document.getElementsByName("csrf-token")[0].content;
     // データを送信
-    const response = await fetch("/letter", {
+    const response = await fetch(form.action, {
         method: 'POST',
         headers: {
             'X-CSRF-Token': token,
