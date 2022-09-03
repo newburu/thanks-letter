@@ -1,13 +1,12 @@
 div id="#{dom_id letter}"
   p
-    strong User:
+    strong = "#{t('activerecord.attributes.letter.user')}:"
     =< letter.user.name
   p
-    strong Subject:
+    strong = "#{t('activerecord.attributes.letter.subject')}:"
     =< letter.subject
   p
-    strong Content:
     = image_tag(letter.image.url)
   p
-    strong  CreatedAt:
+    strong = "#{t('activerecord.attributes.letter.created_at')}:"
     =< letter.created_at
