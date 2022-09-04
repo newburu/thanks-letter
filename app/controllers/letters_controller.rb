@@ -28,7 +28,7 @@ class LettersController < ApplicationController
 
     respond_to do |format|
       if @letter.save
-        format.html { redirect_to edit_letter_url(@letter), notice: "Letter was successfully created." }
+        format.html { redirect_to edit_letter_url(@letter), notice: "作成しました。" }
         format.json { render :show, status: :created, location: @letter }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class LettersController < ApplicationController
 
     respond_to do |format|
       if @letter.update(letter_params)
-        format.html { redirect_to edit_letter_url(@letter), notice: "Letter was successfully updated." }
+        format.html { redirect_to edit_letter_url(@letter), notice: "更新しました。" }
         format.json { render :show, status: :ok, location: @letter }
       else
         format.html { render :edit, status: :unprocessable_entity }
