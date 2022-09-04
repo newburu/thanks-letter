@@ -59,7 +59,7 @@ class LettersController < ApplicationController
     @letter.destroy
 
     respond_to do |format|
-      format.html { redirect_to letters_url, notice: "Letter was successfully destroyed." }
+      format.html { redirect_to letters_url, notice: "削除しました。" }
       format.json { head :no_content }
     end
   end

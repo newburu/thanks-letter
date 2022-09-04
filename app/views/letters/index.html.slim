@@ -13,7 +13,7 @@ h1 = t('.title')
                 = link_to letter.subject, letter
             .col-2
               - if policy(letter).destroy?
-                = button_to letter, method: :delete, form: { data: { turbo_confirm: 'Are you sure?' } }, class: 'delete_link'
+                = button_to letter, method: :delete, form: { data: { turbo_confirm: '削除しますか？' } }, class: 'delete_link'
                   i.fas.fa-trash-can
           .row
             .col-12.created_at
