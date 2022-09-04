@@ -144,8 +144,8 @@ submitButton.addEventListener('click', async() => {
         body: formData
     });
     if (response.ok) {
-        // 送信後、一覧画面に移動します。
-        let location = window.location.replace('/letters')
+        // 送信後、編集画面に移動します。
+        let location = window.location.replace(response.url)
     } else {
         form.submit();
     }
