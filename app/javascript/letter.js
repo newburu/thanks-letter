@@ -44,6 +44,8 @@ function changeLetterImage() {
     drawText();
 }
 
+// フォーム
+const form = document.getElementById('letter_form');
 // Submitボタン
 const submitButton = document.getElementById("letter_submit");
 
@@ -126,11 +128,10 @@ function drawText() {
 }
 
 // 保存処理
-submitButton.addEventListener('click', async() => {
+async function saveImage() {
     // 画像変換
     let imageBlob = await new Promise(resolve => canvasDom.toBlob(resolve, 'image/png'));
 
-    const form = document.getElementById('letter_form');
     const formData = new FormData(form);
     formData.append("letter[image]", imageBlob, "letter.png");
     // CSRF対策
@@ -150,4 +151,12 @@ submitButton.addEventListener('click', async() => {
         form.submit();
     }
 
-});
+}
+
+submitButton.addEventListener('click', saveImage);
+//取得したform要素内の送信ボタンがクリックされた時に発生
+form.onsubmit = function(event) {
+    //form要素の基本動作をキャンセル
+    event.preventDefault();
+    saveImage();
+}
